@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=f98cc287f731ac24d8f5d3a34446ce47&amp;type=3#MainMenu" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/placceholderBackground.jpg?fileID=2800000&amp;guid=3af41245f052ce7408a2373350439c61&amp;type=3#placceholderBackground&quot;);">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; top: 20%; left: 0; right: 0; bottom: 0; width: 70%; height: 20%; align-items: center; align-self: center; align-content: flex-start; flex-direction: column; max-height: 60%; min-height: 20%; min-width: 50%; max-width: 70%; justify-content: flex-start; position: relative; -unity-text-align: upper-center; background-color: rgba(0, 0, 0, 0.31); background-size: 100% 100%; -unity-background-scale-mode: stretch-to-fill; color: rgb(27, 27, 27);">
+            <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/gameLogo.png?fileID=2800000&amp;guid=25c2ad928d4431d4ebd16ff3ac1ecc13&amp;type=3#gameLogo&quot;); opacity: 1; width: 100%; margin-top: 1%; margin-left: 1%; margin-right: 1%; margin-bottom: 1%;" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(199, 200, 150, 0.8); font-size: 80%; padding-top: 2%; padding-bottom: 10%; margin-bottom: 2%; margin-top: 0; align-items: stretch; justify-content: space-between; align-self: center; align-content: auto; padding-left: 10%; padding-right: 10%; height: 35%; max-height: 45%;">
+                <ui:Button text="New Game" name="Button-PlayGame" />
+                <ui:Button text="How To Play" name="Button-HowToPlay" />
+                <ui:Button text="Exit Game" name="Button-ExitGame" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
