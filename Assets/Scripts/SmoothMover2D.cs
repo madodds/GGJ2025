@@ -16,13 +16,6 @@ public class SmoothMover2D : MonoBehaviour
 
     private bool isMoving = false; // To prevent overlapping movements
     private int movementProgress = 0;
-    private float initialWorldZ; // To store the original Z position
-
-    void Start()
-    {
-        // Store the initial Z-axis value
-        initialWorldZ = 8;
-    }
 
     // Public method to trigger movement
     public void StartMovement()
