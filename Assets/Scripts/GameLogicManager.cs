@@ -214,7 +214,8 @@ public class GameLogicManager : MonoBehaviour
         newObject.transform.position = customerSpawnPosition;
 
         // Set the customer SmoothMover2D.audioSource
-        newObject.GetComponent<SmoothMover2D>().audioSource = backgroundAudioSource;
+        // Don't use backgroundAudioSource, this object has its own component for audiosource.
+        newObject.GetComponent<SmoothMover2D>().audioSource = gameObject.GetComponent<AudioSource>();
 
         // Increment customer list index
         currentCustomerIndex ++;

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.36, y: 0.36, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,11 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf92db3f707bf114cbe290df85f688a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPoint: {x: 15, y: -1.8, z: 8}
-  frontOfDeskPoint: {x: 0, y: -1.8, z: 8}
-  leavingDeskPoint: {x: -15, y: -1.8, z: 8}
+  originPoint: {x: 15, y: -0.3, z: 8}
+  frontOfDeskPoint: {x: 0, y: -0.3, z: 8}
+  leavingDeskPoint: {x: -15, y: -0.3, z: 8}
   audioSource: {fileID: 0}
   footstepsSound: {fileID: 8300000, guid: 9522484efa2b42e4aa0b1ec35c1f1408, type: 3}
+  enterSound: {fileID: 8300000, guid: 923188ccd1da26d4d9b1f26986da5075, type: 3}
+  leaveSound: {fileID: 8300000, guid: 5967ea56f18a0e74fb4af1bd6b07da7e, type: 3}
   moveSpeed: 10
   bounceHeight: 0.5
   bounceFrequency: 9
@@ -137,4 +139,5 @@ MonoBehaviour:
   goodEvalText: Thanks dude. Don't forget to tip the goblin next year!
   speechPeriodS: 0.05
   textColor: {r: 0, g: 0.3679245, b: 0.048143476, a: 1}
+  fontSize: 48
   phonePrefab: {fileID: 5258015746035656329, guid: 8b3cbe6c937d06d45aa814512d0c6df9, type: 3}

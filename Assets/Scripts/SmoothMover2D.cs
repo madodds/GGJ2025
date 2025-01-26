@@ -13,6 +13,8 @@ public class SmoothMover2D : MonoBehaviour
 
     public AudioSource audioSource; // Reference to the AudioSource
     public AudioClip footstepsSound;     // The sound to play
+    public AudioClip enterSound;     // The sound to play
+    public AudioClip leaveSound;     // The sound to play
 
     [Header("Movement Settings")]
     public float moveSpeed = 2f; // Speed of movement
@@ -43,11 +45,13 @@ public class SmoothMover2D : MonoBehaviour
             // Move to point1
             yield return StartCoroutine(MoveToPoint(frontOfDeskPoint));
             movementProgress++;
+            audioSource.PlayOneShot(enterSound);
             isMoving = false;
         }
         else if (movementProgress == 1) 
         {
             // Move to point2
+            audioSource.PlayOneShot(leaveSound);
             yield return StartCoroutine(MoveToPoint(leavingDeskPoint));
             // Destroy this object when it reaches its destination (off-screen)
             Destroy(gameObject);

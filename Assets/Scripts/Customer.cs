@@ -11,6 +11,7 @@ public class Customer: MonoBehaviour
 
     public float speechPeriodS = 0.1f;  // Number of seconds to wait between speech characters/segments
     public Color textColor;
+    public int fontSize = 48;
 
     public GameObject phonePrefab;
 
@@ -61,6 +62,7 @@ public class Customer: MonoBehaviour
     {
         yield return new WaitForSeconds(preSpeechDelayS);
         speechLabelElement.style.color = textColor;
+        speechLabelElement.style.fontSize = fontSize;
         string speechOutput;
         for(int i=0; i<=speechText.Length; i++)
         {
