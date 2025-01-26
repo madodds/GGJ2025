@@ -106,7 +106,7 @@ MonoBehaviour:
   leavingDeskPoint: {x: -15, y: -1.5, z: 8}
   audioSource: {fileID: 0}
   footstepsSound: {fileID: 8300000, guid: 9522484efa2b42e4aa0b1ec35c1f1408, type: 3}
-  enterSound: {fileID: 8300000, guid: 7007ede04dfbf6d4e99d1c3b186cd7a2, type: 3}
+  enterSound: {fileID: 8300000, guid: 7e92c532a654da34b8ca243a5053f28a, type: 3}
   leaveSound: {fileID: 8300000, guid: 72eca3fc093e01046ba356a5ff73e8ed, type: 3}
   moveSpeed: 10
   bounceHeight: 0.5
@@ -128,4 +128,4 @@ MonoBehaviour:
   speechPeriodS: 0.05
   textColor: {r: 0.5372549, g: 0.3357742, b: 0, a: 1}
   fontSize: 48
-  phonePrefab: {fileID: 7745821578943513614, guid: 11b6c0a9e18a71a48ae881905f2a203f, type: 3}
+  phonePrefab: {fileID: 5258015746035656329, guid: 8b3cbe6c937d06d45aa814512d0c6df9, type: 3}

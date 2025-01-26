@@ -21,6 +21,7 @@ public class GameLogicManager : MonoBehaviour
     public List<GameObject> customers;
     public AudioSource backgroundAudioSource;
     public CameraMover cameraMover;
+    public bool RandomizeCustomers = true;
 
     // Speech 
     public GameObject speechBubbleObject;
@@ -51,7 +52,8 @@ public class GameLogicManager : MonoBehaviour
             speechBubbleUiRoot.style.display = DisplayStyle.None;
         }
         customerSpawnPosition = GameObject.Find("CustomerSpawnPoint").transform.position;
-        RandomizeCustomerList();
+        if (RandomizeCustomers) 
+            RandomizeCustomerList();
         customerState = CustomerStateEnum.ShiftStart;
     }
 

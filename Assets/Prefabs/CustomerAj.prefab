@@ -136,8 +136,8 @@ MonoBehaviour:
     So I'm posting online about it and one of my friends tells me to come here, and
     so I did, and then'\u2014Oh yeah, that's why I'm here. So I got my phone here
     and this screen protector thing\u2014you know how to put one of these on, right?"
-  goodEvalText: Thanks dude. Don't forget to tip the goblin next year!
+  goodEvalText: Thanks, dude. So anyway, as I was saying...
   speechPeriodS: 0.05
   textColor: {r: 0, g: 0.3679245, b: 0.048143476, a: 1}
   fontSize: 48
-  phonePrefab: {fileID: 5258015746035656329, guid: 8b3cbe6c937d06d45aa814512d0c6df9, type: 3}
+  phonePrefab: {fileID: 7745821578943513614, guid: 11b6c0a9e18a71a48ae881905f2a203f, type: 3}

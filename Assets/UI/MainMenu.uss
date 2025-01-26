@@ -5,3 +5,10 @@
 .hide {
     display: none;
 }
+
+.disabled {
+    color: rgb(106, 106, 106);
+    display: flex;
+    visibility: visible;
+    overflow: visible;
+}

@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5eb5bbccc4458b459cce65388a5788d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introText: I know what you're thinking. 'This guy knows what he's doing. He doesn't
-    need my help.' Well, you're right. I just don't have the proper tools at home,
-    that's all.
+  introText: See me... Oh, ahem... I know what you're thinking. 'This guy knows what
+    he's doing. He doesn't need my help.' Well, you're right. I just don't have the
+    proper tools at home, that's all.
   goodEvalText: Hmph.
   speechPeriodS: 0.05
   textColor: {r: 0.764151, g: 0.024387797, b: 0, a: 1}
