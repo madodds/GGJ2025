@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f14aa73cf097bf74c99922d8f9ec99a7
+guid: 6f6a3313f2e5c6a4ea93571fcfd13f9f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6307404886561666777
-    second: smoother_0
+      213: 8855183221015952277
+    second: scraper_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: smoother_0
+      name: scraper_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 41
-        width: 227
-        height: 554
+        x: 31
+        y: 17
+        width: 208
+        height: 461
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d632168357688750800000000000000
-      internalID: 6307404886561666777
+      spriteID: 59bb7a5093ee3ea70800000000000000
+      internalID: 8855183221015952277
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      smoother_0: 6307404886561666777
+      scraper_0: 8855183221015952277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
