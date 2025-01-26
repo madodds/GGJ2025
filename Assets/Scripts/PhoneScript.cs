@@ -6,14 +6,14 @@ using UnityEngine;
 public class PhoneScript : MonoBehaviour
 {
     public GameObject customerObject;
-    public float moveDuration = 2.0f;
+    public float moveDuration = 1.5f;
 
     public ScreenProtectorScript screenProtector;
     private GameLogicManager gameLogicManager;
     private TextMeshPro clockTextMesh;
     private Vector3 workingPosition;
     private Vector3 scaleAtWorkingPosition = new Vector3(1.5f, 1.5f, 1.5f);
-    private Vector3 scaleAtCustomer = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 scaleAtCustomer = new Vector3(0.25f, 0.25f, 0.25f);
     private bool isMoving;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

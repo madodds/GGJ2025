@@ -445,5 +445,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerObject: {fileID: 0}
-  moveDuration: 2
+  moveDuration: 1.5
   screenProtector: {fileID: 0}
