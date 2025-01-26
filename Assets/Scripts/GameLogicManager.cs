@@ -2,6 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+public enum CustomerStateEnum
+{
+    ShiftStart,
+    Inbound,
+    Intro,
+    Working,
+    Evaluation,
+    Outbound,
+    ShiftOver
+
+}
 public class GameLogicManager : MonoBehaviour
 {
     // Public
@@ -9,6 +20,7 @@ public class GameLogicManager : MonoBehaviour
     public GameObject originalCustomer;
     public List<GameObject> customers;
     public AudioSource backgroundAudioSource;
+    public CameraMover cameraMover;
 
     // Speech 
     public GameObject speechBubbleObject;
@@ -20,6 +32,9 @@ public class GameLogicManager : MonoBehaviour
     private int currentCustomerIndex = 0; // Index to track the next customer
     private Vector3 customerSpawnPosition;
     private GameObject currentCustomer;
+
+        // Keep track of what's going on in relation to customer
+    private CustomerStateEnum customerState;  
 
     // Phone & tools
     private GameObject screenProtector; // Ref to the screen protector, to manage its state
@@ -38,20 +53,109 @@ public class GameLogicManager : MonoBehaviour
         }
         customerSpawnPosition = GameObject.Find("CustomerSpawnPoint").transform.position;
         RandomizeCustomerList();
+        customerState = CustomerStateEnum.ShiftStart;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        // Loose attempt at a state machine. At each customerState, we check for different
+        // conditions to be met before performing behaviour/action and moving on to the next state.
+        switch(customerState)
         {
-            speechBubbleUiRoot.style.display = DisplayStyle.Flex;
-            NextCustomer();
-        }
+            // At ShiftStart, listen for the game start key (TODO: make a button on the desk)
+            case CustomerStateEnum.ShiftStart:
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    // Create (and move) the next customer
+                    NextCustomer();
+                    
+                    customerState = CustomerStateEnum.Inbound;
+                }
+                break;
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            DeleteCustomer();
+            // While waiting for the customer to reach the desk, poll their move state.
+            case CustomerStateEnum.Inbound:
+                if (!currentCustomer.GetComponent<SmoothMover2D>().IsMoving()){
+                    // When they stop show the speech bubble and 
+                    // pass it to the customer script so that it can
+                    // (TODO) start displaying the intro text.
+                    speechBubbleUiRoot.style.display = DisplayStyle.Flex;
+                    currentCustomer.GetComponent<Customer>().StartIntroSpeech(speechBubbleUiRoot.Q<Label>("SpeechLabel"));
+                
+                    customerState = CustomerStateEnum.Intro;
+                }
+                break;
+
+            // In this state, poll for customer to finish talking
+            case CustomerStateEnum.Intro:
+                if (!currentCustomer.GetComponent<Customer>().IsTalking())
+                {
+                    // Turn off speech bubble and move camera down 
+                    // so player can begin working
+                    speechBubbleUiRoot.style.display = DisplayStyle.None;
+                    cameraMover.SetCamera();
+                    
+                    customerState = CustomerStateEnum.Working;
+                }
+                break;
+
+            // When working, poll for SUBMITTED state on the screen protector
+            // (Right now happens when all bubbles are removed. Add a submit
+            // button to desk later)
+            case CustomerStateEnum.Working:
+                if(screenProtector.GetComponent<ScreenProtectorScript>().GetState() == ScreenProtectorStatus.Submitted)
+                {
+                    // Reset the camera, and have the customer start their evaluation speech.
+                    cameraMover.ResetCamera();
+                    speechBubbleUiRoot.style.display = DisplayStyle.Flex;
+                    currentCustomer.GetComponent<Customer>().StartEvaluationSpeech(speechBubbleUiRoot.Q<Label>("SpeechLabel"));
+
+                    customerState = CustomerStateEnum.Evaluation;
+                }
+                break;
+
+            // Wait for the the customer to finish their evaluation speech.
+            case CustomerStateEnum.Evaluation:
+                if (!currentCustomer.GetComponent<Customer>().IsTalking())
+                {
+                    // Start customer movement away from desk
+                    speechBubbleUiRoot.style.display = DisplayStyle.None;
+                    CallMethodOnObject(currentCustomer, "StartMovement");
+
+                    customerState = CustomerStateEnum.Outbound;
+                }
+                break;
+
+            // Wait for current customer to be null (means they were Destroyed)
+            case CustomerStateEnum.Outbound:
+                if (currentCustomer == null)
+                {
+                    // TODO: Add a shift-over check to end the game.
+                    if(false)
+                    {
+                        customerState = CustomerStateEnum.ShiftOver;
+                    }
+
+                    // Create (and move) the next customer.
+                    NextCustomer();
+                    // Reset screen protector and (TODO) configure & 
+                    // reset phone based on customer data.
+                    screenProtector.GetComponent<ScreenProtectorScript>().Reset();
+
+                    customerState = CustomerStateEnum.Inbound;
+                }
+                break;
+
+            case CustomerStateEnum.ShiftOver:
+                // TODO: Implement end of shift/game.
+                break;
         }
+        
+
+        // if (Input.GetKeyDown(KeyCode.X))
+        // {
+        //     DeleteCustomer();
+        // }
     }
 
     // Randomize the order of the customers in the list

@@ -31,6 +31,12 @@ public class CameraMover : MonoBehaviour
         }
     }
 
+    public void SetCamera()
+    {
+        targetPosition = position2;
+        StartCoroutine(MoveCamera());
+    }
+
     public void ResetCamera()
     {
         targetPosition = position1;

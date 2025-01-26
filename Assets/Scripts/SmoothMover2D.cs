@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -30,6 +31,11 @@ public class SmoothMover2D : MonoBehaviour
         }
     }
 
+    public bool IsMoving()
+    {
+        return isMoving;
+    }
+
     private IEnumerator MoveToPoints()
     {
         isMoving = true;
@@ -44,16 +50,8 @@ public class SmoothMover2D : MonoBehaviour
         {
             // Move to point2
             yield return StartCoroutine(MoveToPoint(leavingDeskPoint));
-            movementProgress++;
-            isMoving = false;
-        }
-        else
-        {
-            // Move to origin point
+            // Destroy this object when it reaches its destination (off-screen)
             Destroy(gameObject);
-            //transform.localPosition = originPoint;
-            //movementProgress = 0;
-            //isMoving = false;
         }
     }
 

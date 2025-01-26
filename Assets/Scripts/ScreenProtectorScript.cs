@@ -4,7 +4,7 @@ using NUnit.Framework.Constraints;
 using UnityEngine;
 using static UnityEditor.SceneView;
 
-enum ScreenProtectorStatus
+public enum ScreenProtectorStatus
 {
     New,
     Held,
@@ -95,10 +95,10 @@ public class ScreenProtectorScript : MonoBehaviour
                 }
                 break;
             case ScreenProtectorStatus.Submitted:
-                cameraMover.ResetCamera();
-                gameLogicManager.NextCustomer();
-                StartCoroutine(WaitBeforeAction());
-                Reset();
+                // cameraMover.ResetCamera();
+                // gameLogicManager.NextCustomer();
+                // StartCoroutine(WaitBeforeAction());
+                // Reset();
                 break;
         }
     }
@@ -132,6 +132,11 @@ public class ScreenProtectorScript : MonoBehaviour
 
         }
         status = ScreenProtectorStatus.Submitted;
+    }
+
+    public ScreenProtectorStatus GetState()
+    {
+        return status;
     }
 
     IEnumerator WaitBeforeAction()
