@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 using UnityEngine;
+using static UnityEditor.SceneView;
 
 enum ScreenProtectorStatus
 {
@@ -14,6 +16,8 @@ enum ScreenProtectorStatus
 public class ScreenProtectorScript : MonoBehaviour
 {
     public GameObject bubblePrefab;
+    public GameLogicManager gameLogicManager;
+    public CameraMover cameraMover;
     private BoxCollider2D screenCollider;
     private List<GameObject> bubbles;
     private int bubbleCount;
@@ -64,18 +68,32 @@ public class ScreenProtectorScript : MonoBehaviour
             case ScreenProtectorStatus.Bubbled:
                 if (bubbles != null)
                 {
+                    bool allInactive = true;
                     foreach(GameObject bubble in bubbles)
                     {
                         BubbleScript bubbleScript = bubble.GetComponent<BubbleScript>();
-                        if (bubbleScript.active && bubbleScript.OutsideRect())
+                        if (bubbleScript.active)
                         {
-                            bubbleScript.active = false;
+                            if(bubbleScript.OutsideRect())
+                            {
+                                bubbleScript.active = false;
+                            }
+                            else{
+                                allInactive = false;
+                            }
                         }
+                    }
+                    if (allInactive)
+                    {
+                        Submit();
                     }
                 }
                 break;
             case ScreenProtectorStatus.Submitted:
-                
+                cameraMover.ResetCamera();
+                gameLogicManager.NextCustomer();
+                StartCoroutine(WaitBeforeAction());
+                Reset();
                 break;
         }
     }
@@ -109,6 +127,17 @@ public class ScreenProtectorScript : MonoBehaviour
 
         }
         status = ScreenProtectorStatus.Submitted;
+    }
+
+    IEnumerator WaitBeforeAction()
+    {
+        Debug.Log("Starting wait...");
+        yield return new WaitForSeconds(2f); // Wait for the specified time
+        Debug.Log("Wait complete! Continuing...");
+
+        gameLogicManager.DeleteCustomer();
+        gameLogicManager.NextCustomer();
+        // Perform the next action here
     }
 
     void SpawnBubbles()

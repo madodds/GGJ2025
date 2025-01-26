@@ -44,7 +44,7 @@ public class ObjectSelector2D : MonoBehaviour
         }
 
         // No valid object clicked; deselect the current object
-        DeselectCurrentObject();
+        //DeselectCurrentObject();
     }
 
     void SelectObject(GameObject obj)
