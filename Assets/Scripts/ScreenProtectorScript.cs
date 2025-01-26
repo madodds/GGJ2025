@@ -27,6 +27,7 @@ public class ScreenProtectorScript : MonoBehaviour
     private float minBubbleSize = 0.25f;
     private float maxBubbleSize = 0.35f;
     private Vector3 homePosition;
+    private Vector3 homeScale;
     private ScreenProtectorStatus status;    // If this item is new, held, or placed.
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,6 +35,7 @@ public class ScreenProtectorScript : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 1.0f);
         homePosition = transform.position;
+        homeScale = transform.localScale;
         screenCollider = transform.GetComponent<BoxCollider2D>();
         status = ScreenProtectorStatus.New;
     }
@@ -105,8 +107,10 @@ public class ScreenProtectorScript : MonoBehaviour
 
     public void Reset()
     {
+        transform.SetParent(gameLogicManager.gameSpaceObject.transform, true);
         status = ScreenProtectorStatus.New;
         transform.position = homePosition;
+        transform.localScale = homeScale;
         // Destroy current bubbles if they exist
         if (bubbles != null)
         {
@@ -126,8 +130,9 @@ public class ScreenProtectorScript : MonoBehaviour
                 break;
             case ScreenProtectorStatus.Placed:
             case ScreenProtectorStatus.Bubbled:           
-                Transform phoneRootTransform = GameObject.Find("PhoneRoot").transform;
-                transform.SetParent(phoneRootTransform, true);
+                PhoneScript phone = gameLogicManager.GetCurrentCustomer().GetComponent<Customer>().GetPhone();
+                phone.screenProtector = this;
+                transform.SetParent(phone.transform, true);
                 break;
 
         }

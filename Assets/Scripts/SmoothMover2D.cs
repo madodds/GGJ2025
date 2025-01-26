@@ -18,7 +18,6 @@ public class SmoothMover2D : MonoBehaviour
     public float moveSpeed = 2f; // Speed of movement
     public float bounceHeight = 0.2f; // Height of the bounce (sine wave)
     public float bounceFrequency = 2f; // Frequency of the sine wave
-
     private bool isMoving = false; // To prevent overlapping movements
     private int movementProgress = 0;
 

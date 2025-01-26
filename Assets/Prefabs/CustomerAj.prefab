@@ -137,6 +137,4 @@ MonoBehaviour:
   goodEvalText: Thanks dude. Don't forget to tip the goblin next year!
   speechPeriodS: 0.05
   textColor: {r: 0, g: 0.3679245, b: 0.048143476, a: 1}
-  phoneBackgrounds:
-  - {fileID: 21300000, guid: bb4a032b78734564aa77cd6efe3baf25, type: 3}
-  - {fileID: 21300000, guid: 74f723938d945d142b1f03189fae94e5, type: 3}
+  phonePrefab: {fileID: 5258015746035656329, guid: 8b3cbe6c937d06d45aa814512d0c6df9, type: 3}

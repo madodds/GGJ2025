@@ -28,7 +28,7 @@ public class GameLogicManager : MonoBehaviour
     private VisualElement speechBubbleUiRoot;
 
     // Customer
-    private GameObject gameSpaceObject; // Ref to GameSpace to parent created customers
+    public GameObject gameSpaceObject; // Ref to GameSpace to parent created customers
     private int currentCustomerIndex = 0; // Index to track the next customer
     private Vector3 customerSpawnPosition;
     private GameObject currentCustomer;
@@ -38,7 +38,6 @@ public class GameLogicManager : MonoBehaviour
 
     // Phone & tools
     private GameObject screenProtector; // Ref to the screen protector, to manage its state
-    private GameObject phone; // Ref to the phone, to manage its state.
 
     void Start()
     {
@@ -80,8 +79,12 @@ public class GameLogicManager : MonoBehaviour
                     // pass it to the customer script so that it can
                     // (TODO) start displaying the intro text.
                     speechBubbleUiRoot.style.display = DisplayStyle.Flex;
-                    currentCustomer.GetComponent<Customer>().StartIntroSpeech(speechBubbleUiRoot.Q<Label>("SpeechLabel"));
-                
+                    Customer customer = currentCustomer.GetComponent<Customer>();
+                    customer.StartIntroSpeech(speechBubbleUiRoot.Q<Label>("SpeechLabel"));
+                    // Also have them give their phone to the desk.
+                    // !! This is assumed to finish before the speech does !!
+                    customer.PhoneToDesk();
+
                     customerState = CustomerStateEnum.Intro;
                 }
                 break;
@@ -108,7 +111,11 @@ public class GameLogicManager : MonoBehaviour
                     // Reset the camera, and have the customer start their evaluation speech.
                     cameraMover.ResetCamera();
                     speechBubbleUiRoot.style.display = DisplayStyle.Flex;
-                    currentCustomer.GetComponent<Customer>().StartEvaluationSpeech(speechBubbleUiRoot.Q<Label>("SpeechLabel"));
+                    Customer customer = currentCustomer.GetComponent<Customer>(); 
+                    customer.StartEvaluationSpeech(speechBubbleUiRoot.Q<Label>("SpeechLabel"));
+                    // Also have the phone move to the customer.
+                    // !! This is assumed to finish before the speech does !!
+                    customer.PhoneToCustomer();
 
                     customerState = CustomerStateEnum.Evaluation;
                 }
@@ -122,11 +129,14 @@ public class GameLogicManager : MonoBehaviour
                     speechBubbleUiRoot.style.display = DisplayStyle.None;
                     CallMethodOnObject(currentCustomer, "StartMovement");
 
+                    // Reset screen protector
+                    screenProtector.GetComponent<ScreenProtectorScript>().Reset();
+
                     customerState = CustomerStateEnum.Outbound;
                 }
                 break;
 
-            // Wait for current customer to be null (means they were Destroyed)
+            // Wait for current customer to complete their exit (and deletion).
             case CustomerStateEnum.Outbound:
                 if (currentCustomer == null)
                 {
@@ -135,12 +145,8 @@ public class GameLogicManager : MonoBehaviour
                     {
                         customerState = CustomerStateEnum.ShiftOver;
                     }
-
                     // Create (and move) the next customer.
                     NextCustomer();
-                    // Reset screen protector and (TODO) configure & 
-                    // reset phone based on customer data.
-                    screenProtector.GetComponent<ScreenProtectorScript>().Reset();
 
                     customerState = CustomerStateEnum.Inbound;
                 }
@@ -168,6 +174,10 @@ public class GameLogicManager : MonoBehaviour
             customers[i] = customers[randomIndex];
             customers[randomIndex] = temp;
         }
+    }
+
+    public GameObject GetCurrentCustomer(){
+        return currentCustomer;
     }
 
     public void NextCustomer()
