@@ -4,6 +4,7 @@ public class GameLogicManager : MonoBehaviour
 {
     public RandomSpriteManager spriteManager;
     public GameObject originalCustomer;
+    public AudioSource backgroundAudioSource;
 
     private GameObject currentCustomer;
 
@@ -13,6 +14,8 @@ public class GameLogicManager : MonoBehaviour
     void Start()
     {
         screenProtector = GameObject.Find("ScreenProtector");
+        backgroundAudioSource.volume = 0.10f;
+        backgroundAudioSource.playOnAwake = true;
     }
 
     void Update()

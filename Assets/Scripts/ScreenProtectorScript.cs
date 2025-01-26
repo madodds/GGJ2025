@@ -19,6 +19,8 @@ public class ScreenProtectorScript : MonoBehaviour
     public GameLogicManager gameLogicManager;
     public CameraMover cameraMover;
     public AudioSource audioSource;
+    public AudioClip pickupScreenProtector;
+    public AudioClip putDownScreenProtector;
     private BoxCollider2D screenCollider;
     private List<GameObject> bubbles;
     private int bubbleCount;
@@ -49,6 +51,7 @@ public class ScreenProtectorScript : MonoBehaviour
                     if (Vector3.Distance(mp, transform.position) < 3.0f)
                     {
                         status = ScreenProtectorStatus.Held;
+                        audioSource.PlayOneShot(pickupScreenProtector);
                     }
                 }
                 break;
@@ -60,6 +63,7 @@ public class ScreenProtectorScript : MonoBehaviour
                 if (Input.GetMouseButtonUp(0))
                 {  
                     status = ScreenProtectorStatus.Placed;
+                    audioSource.PlayOneShot(putDownScreenProtector);
                 }
                 break;
             case ScreenProtectorStatus.Placed:
