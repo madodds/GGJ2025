@@ -139,9 +139,36 @@ public class ScreenProtectorScript : MonoBehaviour
         status = ScreenProtectorStatus.Submitted;
     }
 
+    public float GetAccuracyScore()
+    {
+        PhoneScript phone = gameLogicManager.GetCurrentCustomer().GetComponent<Customer>().GetPhone();
+        // Bad score if this wasn't attached to the phone.
+        if(phone.screenProtector == null)
+        {
+            return 1000.0f;
+        }
+        return Vector3.Distance(phone.transform.position, transform.position);
+    }
+
     public ScreenProtectorStatus GetState()
     {
         return status;
+    }
+
+    public int GetBubbleCount()
+    {
+        int count = 0;
+        if(bubbles != null && bubbles.Count > 0)
+        {
+            foreach (GameObject bubbleObject in bubbles)
+            {
+                if(bubbleObject.GetComponent<BubbleScript>().active)
+                {
+                    count ++;
+                }
+            }
+        }
+        return count;
     }
 
     IEnumerator WaitBeforeAction()

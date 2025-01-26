@@ -78,6 +78,11 @@ public class ObjectSelector2D : MonoBehaviour
             // Restore the object's appearance
             SetObjectAppearance(currentlySelectedObject, transparent: false, grayscale: false);
 
+            if(currentlySelectedObject.GetComponent<SelectableObject>().itemType == SelectableObject.ItemType.Squeegee)
+            {
+                gameObject.GetComponent<GameLogicManager>().DroppedSqueegee();
+            }
+
             currentlySelectedObject = null;
         }
 

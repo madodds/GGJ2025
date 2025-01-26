@@ -1,0 +1,22 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement enabled="true" style="flex-grow: 1; background-color: rgb(208, 209, 179); border-top-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; -unity-background-image-tint-color: rgba(171, 171, 128, 0); width: 277px; height: 275px; position: absolute; flex-direction: column; bottom: 0;">
+        <engine:VisualElement style="flex-grow: 1; flex-direction: row; align-items: flex-end; justify-content: space-around; align-self: auto;">
+            <engine:Label text="Score" name="ScoreLabel" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Anton.ttf?fileID=12800000&amp;guid=997a43b767814dd0a7642ec9b78cba41&amp;type=3#Anton&quot;); color: rgb(255, 0, 0); font-size: 64px; align-items: auto; align-self: center; transform-origin: right top; rotate: -6deg; height: auto; -unity-text-outline-width: 2px; -unity-text-outline-color: rgb(0, 0, 0);" />
+            <engine:Label text="0" name="ScoreValue" style="justify-content: flex-start; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Anton.ttf?fileID=12800000&amp;guid=997a43b767814dd0a7642ec9b78cba41&amp;type=3#Anton&quot;); -unity-font-style: bold; font-size: 40px; rotate: 23deg;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; justify-content: flex-start; align-self: auto; margin-top: 25px; margin-right: 25px; margin-bottom: 25px; margin-left: 25px; align-items: auto; align-content: auto; transition-timing-function: ease-in-sine, ease-out; transition-property: bottom, bottom; transition-duration: 1.5s, 1.5s; transition-delay: 0s, 3s;">
+            <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: center; align-self: center;">
+                <engine:Label text="Time:" name="TimeLabel" style="font-size: 20px; -unity-font-style: bold; align-self: auto; align-items: stretch; align-content: flex-start;" />
+                <engine:Label text="0.0&#10;" name="TimeValue" style="-unity-font-style: bold; font-size: 20px;" />
+            </engine:VisualElement>
+            <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: center; align-self: center; align-items: center; min-width: auto; min-height: initial;">
+                <engine:Label text="Accuracy: " name="AccuracyLabel" style="align-content: flex-start; -unity-font-style: bold; font-size: 20px;" />
+                <engine:Label text="0%" name="AccuracyValue" style="-unity-font-style: bold; font-size: 20px;" />
+            </engine:VisualElement>
+            <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: center; align-items: center; align-self: center;">
+                <engine:Label text="Bubble Count:" name="BubbleCountLabel" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-left;" />
+                <engine:Label text="0" name="BubbleCountValue" style="-unity-font-style: bold; font-size: 20px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

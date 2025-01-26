@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -24,8 +25,10 @@ public class GameLogicManager : MonoBehaviour
 
     // Speech 
     public GameObject speechBubbleObject;
+    public GameObject scoreCardObject;
 
     private VisualElement speechBubbleUiRoot;
+    private VisualElement scoreCardUiRoot;
 
     // Customer
     public GameObject gameSpaceObject; // Ref to GameSpace to parent created customers
@@ -39,6 +42,8 @@ public class GameLogicManager : MonoBehaviour
     // Phone & tools
     private GameObject screenProtector; // Ref to the screen protector, to manage its state
 
+    private float serviceDuration;  // Time spent servicing current customer.
+
     void Start()
     {
         gameSpaceObject = GameObject.Find("GameSpace");
@@ -50,8 +55,14 @@ public class GameLogicManager : MonoBehaviour
             speechBubbleUiRoot = speechBubbleObject.GetComponent<UIDocument>().rootVisualElement;
             speechBubbleUiRoot.style.display = DisplayStyle.None;
         }
+        if (scoreCardObject != null)
+        {
+            scoreCardUiRoot = scoreCardObject.GetComponent<UIDocument>().rootVisualElement;
+            scoreCardUiRoot.style.display = DisplayStyle.None;
+        }
         customerSpawnPosition = GameObject.Find("CustomerSpawnPoint").transform.position;
         RandomizeCustomerList();
+        serviceDuration = 0.0f;
         customerState = CustomerStateEnum.ShiftStart;
     }
 
@@ -106,6 +117,7 @@ public class GameLogicManager : MonoBehaviour
             // (Right now happens when all bubbles are removed. Add a submit
             // button to desk later)
             case CustomerStateEnum.Working:
+                serviceDuration += Time.deltaTime;  // Track time spent working on phone
                 if(screenProtector.GetComponent<ScreenProtectorScript>().GetState() == ScreenProtectorStatus.Submitted)
                 {
                     // Reset the camera, and have the customer start their evaluation speech.
@@ -116,6 +128,8 @@ public class GameLogicManager : MonoBehaviour
                     // Also have the phone move to the customer.
                     // !! This is assumed to finish before the speech does !!
                     customer.PhoneToCustomer();
+
+                    CalculateScore();
 
                     customerState = CustomerStateEnum.Evaluation;
                 }
@@ -131,6 +145,8 @@ public class GameLogicManager : MonoBehaviour
 
                     // Reset screen protector
                     screenProtector.GetComponent<ScreenProtectorScript>().Reset();
+
+                    scoreCardUiRoot.style.display = DisplayStyle.None;
 
                     customerState = CustomerStateEnum.Outbound;
                 }
@@ -164,12 +180,27 @@ public class GameLogicManager : MonoBehaviour
         // }
     }
 
+    private void CalculateScore()
+    {
+        ScreenProtectorScript sps = screenProtector.GetComponent<ScreenProtectorScript>();
+        int bubbleCount = sps.GetBubbleCount();
+        float accuracy = sps.GetAccuracyScore();
+        float b = (float)(1 + (10 * bubbleCount));
+        int score = (int)Math.Round(serviceDuration * (1+accuracy) * b);
+        scoreCardUiRoot.Q<Label>("ScoreValue").text = score + "";
+        scoreCardUiRoot.Q<Label>("TimeValue").text = serviceDuration + "";
+        scoreCardUiRoot.Q<Label>("AccuracyValue").text = accuracy + "";
+        scoreCardUiRoot.Q<Label>("BubbleCountValue").text = bubbleCount + "";
+        scoreCardUiRoot.style.display = DisplayStyle.Flex;
+        serviceDuration = 0.0f;
+    }
+
     // Randomize the order of the customers in the list
     private void RandomizeCustomerList()
     {
         for (int i = 0; i < customers.Count; i++)
         {
-            int randomIndex = Random.Range(0, customers.Count);
+            int randomIndex = UnityEngine.Random.Range(0, customers.Count);
             GameObject temp = customers[i];
             customers[i] = customers[randomIndex];
             customers[randomIndex] = temp;
@@ -240,5 +271,13 @@ public class GameLogicManager : MonoBehaviour
     public void DestroyGameObject(GameObject obj)
     {
         Destroy(obj);
+    }
+
+    public void DroppedSqueegee()
+    {
+        if (customerState == CustomerStateEnum.Working)
+        {
+            screenProtector.GetComponent<ScreenProtectorScript>().Submit();
+        }
     }
 }
