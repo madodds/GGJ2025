@@ -9,6 +9,10 @@ public class SmoothMover2D : MonoBehaviour
     public Vector3 frontOfDeskPoint; // The first point
     public Vector3 leavingDeskPoint; // The second point
 
+
+    public AudioSource audioSource; // Reference to the AudioSource
+    public AudioClip footstepsSound;     // The sound to play
+
     [Header("Movement Settings")]
     public float moveSpeed = 2f; // Speed of movement
     public float bounceHeight = 0.2f; // Height of the bounce (sine wave)
@@ -61,6 +65,7 @@ public class SmoothMover2D : MonoBehaviour
         float distance = Vector2.Distance(new Vector2(startPoint.x, startPoint.y), targetPoint);
         float elapsedTime = 0f;
 
+        audioSource.PlayOneShot(footstepsSound);
         while (elapsedTime < 1f)
         {
             // Calculate the percentage of the journey completed
