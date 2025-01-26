@@ -46,9 +46,10 @@ public class SmoothMover2D : MonoBehaviour
         else
         {
             // Move to origin point
-            transform.localPosition = originPoint;
-            movementProgress = 0;
-            isMoving = false;
+            Destroy(gameObject);
+            //transform.localPosition = originPoint;
+            //movementProgress = 0;
+            //isMoving = false;
         }
     }
 

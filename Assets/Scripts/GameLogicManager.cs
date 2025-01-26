@@ -18,29 +18,39 @@ public class GameLogicManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            // Duplicate the object and assign the next sprite
-            if (currentCustomer == null)
-            {
-                currentCustomer = spriteManager.DuplicateGameObject(originalCustomer);
-            }
-
-            // Call a method on the new object
-            if (currentCustomer != null)
-            {
-                CallMethodOnObject(currentCustomer, "StartMovement");
-                if (screenProtector != null)
-                {
-                    screenProtector.GetComponent<ScreenProtectorScript>().SpawnBubbles();
-                }
-            }
+            NextCustomer();
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            // Destroy the object (example)
-            DestroyGameObject(currentCustomer);
-            currentCustomer = null;
+            DeleteCustomer();
         }
+    }
+
+    public void NextCustomer()
+    {
+        // Duplicate the object and assign the next sprite
+        if (currentCustomer == null)
+        {
+            currentCustomer = spriteManager.DuplicateGameObject(originalCustomer);
+        }
+
+        // Call a method on the new object
+        if (currentCustomer != null)
+        {
+            CallMethodOnObject(currentCustomer, "StartMovement");
+            if (screenProtector != null)
+            {
+                screenProtector.GetComponent<ScreenProtectorScript>().SpawnBubbles();
+            }
+        }
+    }
+
+    public void DeleteCustomer()
+    {
+        // Destroy the object (example)
+        DestroyGameObject(currentCustomer);
+        currentCustomer = null;
     }
 
     // Public method to call a method on the new object

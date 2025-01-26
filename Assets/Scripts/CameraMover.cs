@@ -31,6 +31,12 @@ public class CameraMover : MonoBehaviour
         }
     }
 
+    public void ResetCamera()
+    {
+        targetPosition = position1;
+        StartCoroutine(MoveCamera());
+    }
+
     private System.Collections.IEnumerator MoveCamera()
     {
         isMoving = true; // Mark that the camera is moving

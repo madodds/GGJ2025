@@ -78,7 +78,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.41, y: 4.07}
+  m_Size: {x: 4.91, y: 10.09}
   m_EdgeRadius: 0
 --- !u!114 &8471889856178969601
 MonoBehaviour:
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 173734447258079376, guid: 2cd89b250074c3d4793575916f878bf3, type: 3}
+  gameLogicManager: {fileID: 0}
 --- !u!1 &8556684210059498338
 GameObject:
   m_ObjectHideFlags: 0

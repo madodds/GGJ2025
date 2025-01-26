@@ -1,9 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.SceneView;
 
 public class ScreenProtectorScript : MonoBehaviour
 {
     public GameObject bubblePrefab;
+    public GameLogicManager gameLogicManager;
+    public CameraMover cameraMover;
     private BoxCollider2D screenCollider;
     private List<GameObject> bubbles;
     private int bubbleCount;
@@ -28,12 +32,25 @@ public class ScreenProtectorScript : MonoBehaviour
                 BubbleScript bubbleScript = bubble.GetComponent<BubbleScript>();
                 if (bubbleScript.active && bubbleScript.OutsideRect())
                 {
+                    cameraMover.ResetCamera();
+                    gameLogicManager.NextCustomer();
+                    StartCoroutine(WaitBeforeAction());
                     bubbleScript.active = false;
                 }
             }
         }
     }
 
+    IEnumerator WaitBeforeAction()
+    {
+        Debug.Log("Starting wait...");
+        yield return new WaitForSeconds(2f); // Wait for the specified time
+        Debug.Log("Wait complete! Continuing...");
+
+        gameLogicManager.DeleteCustomer();
+        gameLogicManager.NextCustomer();
+        // Perform the next action here
+    }
     public void SpawnBubbles()
     {
         // Destroy current bubbles if they exist
