@@ -356,52 +356,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &485110963
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 485110965}
-  - component: {fileID: 485110964}
-  m_Layer: 0
-  m_Name: SpriteManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &485110964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485110963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4732c635d5511314ab4bad4cfac19f09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spritesFolderPath: Assets/UI/Customers
-  spriteList: []
---- !u!4 &485110965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485110963}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.572248, y: 2.1216862, z: -0.10682289}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490746888
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57dba0d0971b1746b2e1132a40e029d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteManager: {fileID: 485110964}
   originalCustomer: {fileID: 0}
   customers:
   - {fileID: 8443623953440591676, guid: 4d2ec31ccd7d123419d91618f9e18267, type: 3}
@@ -1312,7 +1265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3a84ce88a73f3e14c81ecb68c2c97c9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a48b7877a3efb2478af26b72ee7f3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1762,6 +1715,5 @@ SceneRoots:
   - {fileID: 1221749412}
   - {fileID: 2084089588}
   - {fileID: 592431342}
-  - {fileID: 485110965}
   - {fileID: 490746890}
   - {fileID: 1047151189}
