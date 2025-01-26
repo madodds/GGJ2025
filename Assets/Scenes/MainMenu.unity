@@ -436,13 +436,15 @@ MonoBehaviour:
   spriteManager: {fileID: 485110964}
   originalCustomer: {fileID: 0}
   customers:
-  - {fileID: 2688473868732486320, guid: 3f7133e1891cbaa4490cf0227be202e9, type: 3}
-  - {fileID: 4271653495180031754, guid: f130cfbe5263e0a4e9cb0075776610be, type: 3}
-  - {fileID: 7982664627591397670, guid: 6ac23a64e70260e479736c4b4c3bcd29, type: 3}
-  - {fileID: 4194179018067279611, guid: a8e2471c41b9177428be09fca0fcad3f, type: 3}
   - {fileID: 8443623953440591676, guid: 4d2ec31ccd7d123419d91618f9e18267, type: 3}
+  - {fileID: 4194179018067279611, guid: a8e2471c41b9177428be09fca0fcad3f, type: 3}
+  - {fileID: 2688473868732486320, guid: 3f7133e1891cbaa4490cf0227be202e9, type: 3}
+  - {fileID: 7982664627591397670, guid: 6ac23a64e70260e479736c4b4c3bcd29, type: 3}
+  - {fileID: 8443623953440591676, guid: 68b27f5747cd1d84f9acaa842fe0d3b0, type: 3}
+  - {fileID: 4271653495180031754, guid: f130cfbe5263e0a4e9cb0075776610be, type: 3}
   backgroundAudioSource: {fileID: 592431343}
   cameraMover: {fileID: 519420033}
+  RandomizeCustomers: 0
   speechBubbleObject: {fileID: 1047151187}
   gameSpaceObject: {fileID: 0}
 --- !u!4 &490746890
@@ -1213,7 +1215,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
