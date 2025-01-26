@@ -7,7 +7,8 @@ public class GameLogicManager : MonoBehaviour
 
     private GameObject currentCustomer;
 
-    private GameObject screenProtector;
+    private GameObject screenProtector; // Ref to the screen protector, to manage its state
+    private GameObject phone; // Ref to the phone, to manage its state.
 
     void Start()
     {
@@ -39,10 +40,6 @@ public class GameLogicManager : MonoBehaviour
         if (currentCustomer != null)
         {
             CallMethodOnObject(currentCustomer, "StartMovement");
-            if (screenProtector != null)
-            {
-                screenProtector.GetComponent<ScreenProtectorScript>().SpawnBubbles();
-            }
         }
     }
 

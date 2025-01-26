@@ -11,23 +11,11 @@ public class BubbleScript : MonoBehaviour
     private Spline spline;
 
     private Vector3 center;
-    // private Transform centerSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Debug.Log("Start");
         active = true;
-        // centerSprite = transform.GetChild(0);
-        // sprite = GetComponent<SpriteShapeController>();
-        // spline = sprite.spline;
-        // spline.SetPosition(0, new Vector3(-1, -1, 0));  // BL
-        // spline.SetPosition(1, new Vector3(-1, 1, 0));   // TL
-        // spline.SetPosition(2, new Vector3(1, 1, 0));    // TR
-        // spline.SetPosition(3, new Vector3(1, -1, 0)); ; // BR
-        // UpdateCenter();
-
-        // Iterate through control points to find max values 
     }
 
     // Update is called once per frame
@@ -49,8 +37,6 @@ public class BubbleScript : MonoBehaviour
 
     public void InitBubble(Vector3 newCenter, float size, BoxCollider2D collider)
     {
-        // Debug.Log("InitBubble");
-        // Debug.Log("New Center "+newCenter.x+" "+newCenter.y);
         transform.position = new Vector3(transform.position.x, transform.position.y, 1.0f);
         screenCollider = collider;
         spriteShapeRenderer = GetComponent<SpriteShapeRenderer>();
@@ -68,10 +54,6 @@ public class BubbleScript : MonoBehaviour
         bool outside = true;
         for (int i = 0; i < 4; i++)
         {
-            // if (i == 0)
-            // {
-            //     Debug.Log(screenCollider.bounds + "  " + (spline.GetPosition(i) + transform.position));
-            // }
             if (screenCollider.bounds.Contains(spline.GetPosition(i)+ transform.position))
             {
                 outside = false;
@@ -88,8 +70,6 @@ public class BubbleScript : MonoBehaviour
         float bottom = System.Math.Max(BL().y, BR().y);
 
         center = new Vector3(left+(right-left)/2, bottom+(top-bottom)/2, 0);
-
-        // centerSprite.localPosition = center;
     }
 
     void MoveBubble(Vector3 mousePos)
@@ -99,10 +79,6 @@ public class BubbleScript : MonoBehaviour
         {
             Vector3 currentPos = spline.GetPosition(i);
             float distFromMouse = Vector3.Distance(mousePos, currentPos);
-            // if (i == 0)
-            // {
-            //     Debug.Log(distFromMouse);
-            // }
             
             if (distFromMouse < 0.2f)
             {
