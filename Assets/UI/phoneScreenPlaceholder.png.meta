@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 25c2ad928d4431d4ebd16ff3ac1ecc13
+guid: e997624029052a8469daa5a7c518dad1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4392582807621852676
-    second: gameLogo_0
+      213: -5995903669384713182
+    second: How-to-Take-Screenshots-on-an-Android_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gameLogo_0
+      name: How-to-Take-Screenshots-on-an-Android_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 372
-        height: 170
+        width: 384
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf1263995396a03c0800000000000000
-      internalID: -4392582807621852676
+      spriteID: 22cecde51654acca0800000000000000
+      internalID: -5995903669384713182
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gameLogo_0: -4392582807621852676
+      How-to-Take-Screenshots-on-an-Android_0: -5995903669384713182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

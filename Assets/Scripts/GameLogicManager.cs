@@ -7,6 +7,13 @@ public class GameLogicManager : MonoBehaviour
 
     private GameObject currentCustomer;
 
+    private GameObject screenProtector;
+
+    void Start()
+    {
+        screenProtector = GameObject.Find("ScreenProtector");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
@@ -21,6 +28,10 @@ public class GameLogicManager : MonoBehaviour
             if (currentCustomer != null)
             {
                 CallMethodOnObject(currentCustomer, "StartMovement");
+                if (screenProtector != null)
+                {
+                    screenProtector.GetComponent<ScreenProtectorScript>().SpawnBubbles();
+                }
             }
         }
 
