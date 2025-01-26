@@ -189,6 +189,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  squeakSounds:
+  - {fileID: 8300000, guid: 7007ede04dfbf6d4e99d1c3b186cd7a2, type: 3}
+  - {fileID: 8300000, guid: c7f0a0bfdf8304e409fd7ac97ef51cd7, type: 3}
+  - {fileID: 8300000, guid: 886e3f1e1a4ebbd4d8315ba8837da44c, type: 3}
+  - {fileID: 8300000, guid: 0efc88d7aa47a0a4ca4a914b079599b7, type: 3}
+  - {fileID: 8300000, guid: 0c97a77cdbde9db4b9a1e54bf9bb7d97, type: 3}
 --- !u!68 &6347361174754258429
 EdgeCollider2D:
   m_ObjectHideFlags: 0

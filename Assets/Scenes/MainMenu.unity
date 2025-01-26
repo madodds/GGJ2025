@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 490746890}
   - component: {fileID: 490746889}
   - component: {fileID: 490746891}
+  - component: {fileID: 490746892}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -374,6 +375,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f065d1b6967f54db02f9def0c29b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &490746892
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490746888}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +878,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -8042579999153474151, guid: 3af41245f052ce7408a2373350439c61, type: 3}
-  m_Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1163,6 +1261,8 @@ MonoBehaviour:
   originPoint: {x: 15, y: -1.8, z: 8}
   frontOfDeskPoint: {x: 0, y: -1.8, z: 8}
   leavingDeskPoint: {x: -15, y: -1.8, z: 8}
+  audioSource: {fileID: 490746892}
+  footstepsSound: {fileID: 8300000, guid: 9522484efa2b42e4aa0b1ec35c1f1408, type: 3}
   moveSpeed: 10
   bounceHeight: 0.5
   bounceFrequency: 9
@@ -1253,7 +1353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121351219117255201, guid: 11d5c48bd8d52fc4cb0734d5aa8c20c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.27
       objectReference: {fileID: 0}
     - target: {fileID: 2121351219117255201, guid: 11d5c48bd8d52fc4cb0734d5aa8c20c5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1319,6 +1419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreenProtector
       objectReference: {fileID: 0}
+    - target: {fileID: 8471889856178969601, guid: 11d5c48bd8d52fc4cb0734d5aa8c20c5, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 490746892}
     - target: {fileID: 8471889856178969601, guid: 11d5c48bd8d52fc4cb0734d5aa8c20c5, type: 3}
       propertyPath: cameraMover
       value: 

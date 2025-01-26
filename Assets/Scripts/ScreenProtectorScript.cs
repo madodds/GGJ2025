@@ -18,6 +18,7 @@ public class ScreenProtectorScript : MonoBehaviour
     public GameObject bubblePrefab;
     public GameLogicManager gameLogicManager;
     public CameraMover cameraMover;
+    public AudioSource audioSource;
     private BoxCollider2D screenCollider;
     private List<GameObject> bubbles;
     private int bubbleCount;
@@ -155,7 +156,7 @@ public class ScreenProtectorScript : MonoBehaviour
             GameObject bubble = Instantiate(bubblePrefab, new Vector3(0,0,0), Quaternion.identity);
             bubbles.Add(bubble);
             bubble.transform.SetParent(transform, false);
-            bubble.GetComponent<BubbleScript>().InitBubble(bubbleCenter, Random.Range(minBubbleSize, maxBubbleSize), screenCollider);
+            bubble.GetComponent<BubbleScript>().InitBubble(bubbleCenter, Random.Range(minBubbleSize, maxBubbleSize), screenCollider, audioSource);
         }
     }
 }

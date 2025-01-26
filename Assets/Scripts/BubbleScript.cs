@@ -1,13 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class BubbleScript : MonoBehaviour
 {
     public bool active;
+    public AudioClip[] squeakSounds;
     private BoxCollider2D screenCollider;
     private SpriteShapeRenderer spriteShapeRenderer;
     private SpriteShapeController sprite;
-    
+    private AudioSource audioSourceRef;
+
     private Spline spline;
 
     private Vector3 center;
@@ -35,8 +38,9 @@ public class BubbleScript : MonoBehaviour
         }
     }
 
-    public void InitBubble(Vector3 newCenter, float size, BoxCollider2D collider)
+    public void InitBubble(Vector3 newCenter, float size, BoxCollider2D collider, AudioSource audioSource)
     {
+        audioSourceRef = audioSource;
         transform.position = new Vector3(transform.position.x, transform.position.y, 1.0f);
         screenCollider = collider;
         spriteShapeRenderer = GetComponent<SpriteShapeRenderer>();
@@ -98,6 +102,8 @@ public class BubbleScript : MonoBehaviour
                     spline.SetPosition(opposite, newOppositePos);
                     UpdateCenter();
                 }
+                int randomIndex = UnityEngine.Random.Range(0, squeakSounds.Length);
+                audioSourceRef.PlayOneShot(squeakSounds[randomIndex]);
                 break;
             }
         }
