@@ -16,8 +16,6 @@ public enum CustomerStateEnum
 }
 public class GameLogicManager : MonoBehaviour
 {
-    // Public
-    public RandomSpriteManager spriteManager;
     public GameObject originalCustomer;
     public List<GameObject> customers;
     public AudioSource backgroundAudioSource;
