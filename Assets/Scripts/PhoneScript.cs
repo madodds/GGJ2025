@@ -21,7 +21,7 @@ public class PhoneScript : MonoBehaviour
     {
         transform.localScale = scaleAtCustomer;
         clockTextMesh = transform.Find("Clock").GetComponent<TextMeshPro>();
-        clockTextMesh.text = System.DateTime.Now.ToString("t");
+        clockTextMesh.text = System.DateTime.Now.ToString("HH:mm");
         workingPosition = GameObject.Find("PhoneWorkPoint").transform.position;
         isMoving = false;
         // Hide this object and children initially

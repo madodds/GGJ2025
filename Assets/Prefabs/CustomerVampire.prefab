@@ -127,4 +127,4 @@ MonoBehaviour:
   goodEvalText: Hmph.
   speechPeriodS: 0.05
   textColor: {r: 0.764151, g: 0.024387797, b: 0, a: 1}
-  phonePrefab: {fileID: 5258015746035656329, guid: 8b3cbe6c937d06d45aa814512d0c6df9, type: 3}
+  phonePrefab: {fileID: 8854603125769401117, guid: d0630f5aa190b7b47a45230508e50058, type: 3}

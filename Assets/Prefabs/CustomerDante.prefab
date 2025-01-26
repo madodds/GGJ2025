@@ -125,4 +125,4 @@ MonoBehaviour:
   goodEvalText: The shirt? If you know, you know.
   speechPeriodS: 0.05
   textColor: {r: 0.38765782, g: 0, b: 0.5372549, a: 1}
-  phonePrefab: {fileID: 5258015746035656329, guid: 8b3cbe6c937d06d45aa814512d0c6df9, type: 3}
+  phonePrefab: {fileID: 5911323218431967325, guid: 8ec5590d0750fd641a746cf6af4098f3, type: 3}
