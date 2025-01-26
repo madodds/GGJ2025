@@ -123,7 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introText: Hey.
   goodEvalText: Thanks.
-  textColor: {r: 0.5372549, g: 0.3357742, b: 0, a: 0}
+  speechPeriodS: 0.05
+  textColor: {r: 0.5372549, g: 0.3357742, b: 0, a: 1}
   phoneBackgrounds:
   - {fileID: 21300000, guid: 51f8d78c887e8114191e7ef5ae4823db, type: 3}
   - {fileID: 21300000, guid: 74f723938d945d142b1f03189fae94e5, type: 3}

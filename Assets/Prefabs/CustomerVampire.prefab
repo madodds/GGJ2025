@@ -125,7 +125,8 @@ MonoBehaviour:
     need my help.' Well, you're right. I just don't have the proper tools at home,
     that's all.
   goodEvalText: Hmph.
-  textColor: {r: 0.36862746, g: 0.010827596, b: 0, a: 0}
+  speechPeriodS: 0.05
+  textColor: {r: 0.764151, g: 0.024387797, b: 0, a: 1}
   phoneBackgrounds:
   - {fileID: 21300000, guid: fddcd01dfb686304889b1c1962f72f05, type: 3}
   - {fileID: 21300000, guid: 74f723938d945d142b1f03189fae94e5, type: 3}

@@ -123,7 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introText: Well hello there. You look like you're good with your hands...
   goodEvalText: Thank you so much.
-  textColor: {r: 0, g: 0.055022, b: 0.5377358, a: 0}
+  speechPeriodS: 0.05
+  textColor: {r: 0, g: 0.055022, b: 0.5377358, a: 1}
   phoneBackgrounds:
   - {fileID: 21300000, guid: 0fc4f2a10ef5f7e4eaad6f9bfdb1de21, type: 3}
   - {fileID: 21300000, guid: 74f723938d945d142b1f03189fae94e5, type: 3}

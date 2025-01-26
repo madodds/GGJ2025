@@ -135,7 +135,8 @@ MonoBehaviour:
     so I did, and then'\u2014Oh yeah, that's why I'm here. So I got my phone here
     and this screen protector thing\u2014you know how to put one of these on, right?"
   goodEvalText: Thanks dude. Don't forget to tip the goblin next year!
-  textColor: {r: 0, g: 0.3679245, b: 0.048143476, a: 0}
+  speechPeriodS: 0.05
+  textColor: {r: 0, g: 0.3679245, b: 0.048143476, a: 1}
   phoneBackgrounds:
   - {fileID: 21300000, guid: bb4a032b78734564aa77cd6efe3baf25, type: 3}
   - {fileID: 21300000, guid: 74f723938d945d142b1f03189fae94e5, type: 3}

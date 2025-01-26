@@ -99,7 +99,7 @@ public class GameLogicManager : MonoBehaviour
                 }
                 break;
 
-            // When working, poll for SUBMITTED state on the screen protector
+            // When Working, poll for SUBMITTED state on the screen protector
             // (Right now happens when all bubbles are removed. Add a submit
             // button to desk later)
             case CustomerStateEnum.Working:
