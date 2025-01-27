@@ -139,5 +139,5 @@ MonoBehaviour:
   goodEvalText: Thanks, dude. So anyway, as I was saying...
   speechPeriodS: 0.05
   textColor: {r: 0, g: 0.3679245, b: 0.048143476, a: 1}
-  fontSize: 48
+  fontSize: 36
   phonePrefab: {fileID: 7745821578943513614, guid: 11b6c0a9e18a71a48ae881905f2a203f, type: 3}

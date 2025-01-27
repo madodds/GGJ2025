@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -174,10 +175,13 @@ public class GameLogicManager : MonoBehaviour
         }
         
 
-        // if (Input.GetKeyDown(KeyCode.X))
-        // {
-        //     DeleteCustomer();
-        // }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#endif
+        }
     }
 
     private void CalculateScore()
