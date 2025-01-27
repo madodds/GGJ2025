@@ -399,7 +399,7 @@ MonoBehaviour:
   cameraMover: {fileID: 519420033}
   RandomizeCustomers: 0
   speechBubbleObject: {fileID: 1047151187}
-  scoreCardObject: {fileID: 0}
+  scoreCardObject: {fileID: 1021525983}
   gameSpaceObject: {fileID: 0}
 --- !u!4 &490746890
 Transform:
